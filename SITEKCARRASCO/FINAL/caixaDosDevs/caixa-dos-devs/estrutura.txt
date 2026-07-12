@@ -1,0 +1,20 @@
+
+C:\ARQUIVOS-VSC\SITEKCARRASCO\FINAL\caixaDosDevs\caixa-dos-devs
+├── eslint.config.mjs
+├── estrutura.txt
+├── next-env.d.ts
+├── next.config.ts
+├── node_modules
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+├── README.md
+├── src
+└── tsconfig.json
+
+directory: 3 file: 9
+
+
+
+[2K[1G
