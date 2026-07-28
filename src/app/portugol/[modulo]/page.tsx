@@ -12,7 +12,7 @@ import { aBaseDeTudo } from '@/data/portugol/a-base-de-tudo';
 import { variaveisTipos } from '@/data/portugol/variaveis-tipos';
 import { estruturasCondicao } from '@/data/portugol/estruturas-condicao';
 import { estruturasRepeticao } from '@/data/portugol/estruturas-repeticao';
-import { operadores } from '@/data/javascript/operadores';
+import { operadores } from '@/data/portugol/operadores';
 import { vetores } from '@/data/portugol/vetores';
 
 // Mapeando os IDs da URL para o arquivo correto

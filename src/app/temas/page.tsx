@@ -36,8 +36,8 @@ export default function Temas() {
       categoria: 'Linguagem de Marcação',
       descricao: 'O esqueleto de tudo. Entenda as tags estruturais e como a web é construída por baixo dos panos.',
       personagens: ['/personagens/html.png'],
-      status: 'Em Breve',
-      ativo: false
+      status: 'Disponível',
+      ativo: true
     },
     { 
       id: 'css', 
@@ -45,8 +45,8 @@ export default function Temas() {
       categoria: 'Linguagem de Estilização',
       descricao: 'A artista visual. Domine cores, espaçamentos, flexbox e deixe o mundo real com a sua cara.',
       personagens: ['/personagens/css.png'],
-      status: 'Em Breve',
-      ativo: false
+      status: 'Disponível',
+      ativo: true
     },
     { 
       id: 'tailwindcss', 
@@ -90,8 +90,8 @@ export default function Temas() {
       categoria: 'Linguagem de Programação',
       descricao: 'A serpente dos dados. Domine a linguagem ideal para criar scripts poderosos, sistemas internos e dashboards de gestão completos com uma sintaxe limpa.',
       personagens: ['/personagens/python.png'],
-      status: 'Em Breve',
-      ativo: false
+      status: 'Disponível',
+      ativo: true
     },
   ];
 

@@ -15,9 +15,10 @@ interface FlashCardProps {
     headers: string[];
     rows: string[][];
   };
+  isHtmlPreview?: boolean;
 }
 
-export default function FlashCard({ title, content, type, codeSnippet, interactiveId, terminalOutput, tableData }: FlashCardProps) {
+export default function FlashCard({ title, content, type, codeSnippet, interactiveId, terminalOutput, tableData, isHtmlPreview = false }: FlashCardProps) {
   const [moedaState, setMoedaState] = useState(true);
   const [animando, setAnimando] = useState(false);
 
@@ -137,7 +138,26 @@ export default function FlashCard({ title, content, type, codeSnippet, interacti
           <CodeBlock code={codeSnippet} />
         )}
 
-        {terminalOutput && (
+        {isHtmlPreview && codeSnippet ? (
+          <div className="mt-6 rounded-xl border border-zinc-300 overflow-hidden bg-white shadow-lg">
+            <div className="bg-zinc-200 px-4 py-2 border-b border-zinc-300 flex items-center gap-2">
+              <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-wider">
+                🌐 Navegador
+              </span>
+              <div className="ml-2 bg-white px-3 py-0.5 rounded shadow-sm text-[10px] text-zinc-500 font-mono flex-1 truncate">
+                localhost:3000
+              </div>
+            </div>
+            <div className="p-4 w-full text-black">
+              <iframe
+                srcDoc={codeSnippet}
+                className="w-full min-h-[120px] border-none"
+                title="HTML Preview"
+                sandbox="allow-scripts"
+              />
+            </div>
+          </div>
+        ) : terminalOutput ? (
           <div className="mt-2 overflow-hidden rounded-lg bg-[#0d1117] border border-zinc-800 font-mono text-sm shadow-inner">
             <div className="flex items-center bg-[#161b22] px-4 py-2 border-b border-zinc-800">
               <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-bold">Terminal Output</span>
@@ -160,7 +180,7 @@ export default function FlashCard({ title, content, type, codeSnippet, interacti
               </div>
             </div>
           </div>
-        )}
+        ) : null}
       </div>
 
     </div>
