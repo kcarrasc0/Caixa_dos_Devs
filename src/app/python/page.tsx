@@ -3,30 +3,14 @@ import Image from 'next/image';
 
 export default function PythonTrack() {
   const modulos = [
-    { 
-      id: 'basico', 
-      titulo: 'Conceitos Iniciais e Básico', 
-      descricao: 'A filosofia do Python, variáveis dinâmicas, tipos de dados e os operadores fundamentais.',
-      aula: 'Módulo 1'
-    },
-    { 
-      id: 'controle', 
-      titulo: 'Estruturas de Controle', 
-      descricao: 'Tomadas de decisão (if/elif/else) e laços de repetição (for e while) para automatizar tarefas.',
-      aula: 'Módulo 2'
-    },
-    { 
-      id: 'estruturas-funcoes', 
-      titulo: 'Estruturas de Dados e Funções', 
-      descricao: 'Como guardar dados em Listas, Tuplas e Dicionários, e como criar blocos de código reutilizáveis.',
-      aula: 'Módulo 3'
-    },
-    { 
-      id: 'avancado', 
-      titulo: 'Tópicos Avançados', 
-      descricao: 'Domine a Orientação a Objetos (Classes e Herança) e aprenda a tratar erros e exceções.',
-      aula: 'Módulo 4'
-    }
+    { id: 'basico', titulo: 'Conceitos Iniciais e Básico', descricao: 'Ambiente, IDEs, Variáveis, Tipos de Dados e I/O.', aula: 'Módulo 1' },
+    { id: 'operadores', titulo: 'Operadores e Formatação', descricao: 'Aritmética, Atribuição Composta, F-strings e PEP 8.', aula: 'Módulo 2' },
+    { id: 'condicionais', titulo: 'Lógica e Condicionais', descricao: 'Tabela Verdade e Estruturas if, elif e else.', aula: 'Módulo 3' },
+    { id: 'while-loops', titulo: 'Laços de Repetição (While)', descricao: 'Condições de parada, acumuladores e menus interativos.', aula: 'Módulo 4' },
+    { id: 'for-strings', titulo: 'Laço For e Manipulação', descricao: 'A função range, break/continue e tratamento de strings.', aula: 'Módulo 5' },
+    { id: 'poo-intro', titulo: 'Introdução à POO', descricao: 'Abstração, Classes, Objetos e o construtor __init__.', aula: 'Módulo 6' },
+    { id: 'poo-metodos', titulo: 'Métodos e Encapsulamento', descricao: 'O parâmetro self, métodos e interação entre objetos.', aula: 'Módulo 7' },
+    { id: 'poo-avancado', titulo: 'Revisão e Próximos Passos', descricao: 'Herança, Polimorfismo e a retrospectiva da jornada.', aula: 'Módulo 8' }
   ];
 
   return (

@@ -9,16 +9,24 @@ import FlashCard from '@/components/Study/FlashCard';
 
 // Importando todos os bancos de dados do Python
 import { basico } from '@/data/python/basico';
-import { controle } from '@/data/python/controle';
-import { estruturasFuncoes } from '@/data/python/estruturas_funcoes';
-import { avancado } from '@/data/python/avancado';
+import { operadores } from '@/data/python/operadores';
+import { condicionais } from '@/data/python/condicionais';
+import { whileLoops } from '@/data/python/while_loops';
+import { forStrings } from '@/data/python/for_strings';
+import { pooIntro } from '@/data/python/poo_intro';
+import { pooMetodos } from '@/data/python/poo_metodos';
+import { pooAvancado } from '@/data/python/poo_avancado';
 
-// Mapeando os IDs da URL
+// Mapeando os IDs da URL para o arquivo correto
 const bancoDeAulas: Record<string, any> = {
   'basico': basico,
-  'controle': controle,
-  'estruturas-funcoes': estruturasFuncoes,
-  'avancado': avancado
+  'operadores': operadores,
+  'condicionais': condicionais,
+  'while-loops': whileLoops,
+  'for-strings': forStrings,
+  'poo-intro': pooIntro,
+  'poo-metodos': pooMetodos,
+  'poo-avancado': pooAvancado
 };
 
 export default function PythonModuloPage() {

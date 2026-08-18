@@ -13,24 +13,6 @@ export default function Temas() {
       ativo: true
     },
     { 
-      id: 'javascript', 
-      titulo: 'JavaScript', 
-      categoria: 'Linguagem de Programação',
-      descricao: 'A mestre de cerimônias. Aprenda lógica de programação, variáveis, operadores e como dar vida às aplicações.',
-      personagens: ['/personagens/javascript.png'],
-      status: 'Disponível',
-      ativo: true
-    },
-    { 
-      id: 'typescript', 
-      titulo: 'TypeScript', 
-      categoria: 'Linguagem de Programação',
-      descricao: 'O segurança linha dura do código. Adicione tipagem estática ao JavaScript, pegue erros antes de rodar e deixe suas aplicações blindadas.',
-      personagens: ['/personagens/typescript.png'],
-      status: 'Em Breve',
-      ativo: false
-    },
-    { 
       id: 'html', 
       titulo: 'HTML', 
       categoria: 'Linguagem de Marcação',
@@ -47,6 +29,46 @@ export default function Temas() {
       personagens: ['/personagens/css.png'],
       status: 'Disponível',
       ativo: true
+    },
+    { 
+      id: 'javascript', 
+      titulo: 'JavaScript', 
+      categoria: 'Linguagem de Programação',
+      descricao: 'A mestre de cerimônias. Aprenda lógica de programação, variáveis, operadores e como dar vida às aplicações.',
+      personagens: ['/personagens/javascript.png'],
+      status: 'Disponível',
+      ativo: true
+    },
+    { 
+      id: 'portifolio', 
+      titulo: 'Projeto Portfólio', 
+      categoria: 'Projeto Prático',
+      descricao: 'A Tríade Web na prática. Junte HTML, CSS e JavaScript para construir e estruturar o seu primeiro portfólio real do zero.',
+      personagens: [
+        '/personagens/html.png', 
+        '/personagens/css.png', 
+        '/personagens/javascript.png'
+      ],
+      status: 'Disponível',
+      ativo: true
+    },
+    { 
+      id: 'python', 
+      titulo: 'Python', 
+      categoria: 'Linguagem de Programação',
+      descricao: 'A serpente dos dados. Domine a linguagem ideal para criar scripts poderosos, sistemas internos e dashboards de gestão completos com uma sintaxe limpa.',
+      personagens: ['/personagens/python.png'],
+      status: 'Disponível',
+      ativo: true
+    },
+    { 
+      id: 'typescript', 
+      titulo: 'TypeScript', 
+      categoria: 'Linguagem de Programação',
+      descricao: 'O segurança linha dura do código. Adicione tipagem estática ao JavaScript, pegue erros antes de rodar e deixe suas aplicações blindadas.',
+      personagens: ['/personagens/typescript.png'],
+      status: 'Em Breve',
+      ativo: false
     },
     { 
       id: 'tailwindcss', 
@@ -83,16 +105,7 @@ export default function Temas() {
       personagens: ['/personagens/next.png'],
       status: 'Em Breve',
       ativo: false
-    },
-    { 
-      id: 'python', 
-      titulo: 'Python', 
-      categoria: 'Linguagem de Programação',
-      descricao: 'A serpente dos dados. Domine a linguagem ideal para criar scripts poderosos, sistemas internos e dashboards de gestão completos com uma sintaxe limpa.',
-      personagens: ['/personagens/python.png'],
-      status: 'Disponível',
-      ativo: true
-    },
+    }
   ];
 
   return (
@@ -148,14 +161,24 @@ export default function Temas() {
               )}
 
               {/* Box da Imagem */}
-              <div className="relative z-10 flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 bg-zinc-950 border border-zinc-800 rounded-xl flex items-center justify-center p-3 mb-4 sm:mb-0 sm:mr-6 image-pixelated group-hover:border-[#8A2BE2]/40 transition-colors">
-                <Image 
-                  src={tema.personagens[0]} 
-                  alt={`Personagem ${tema.titulo}`} 
-                  width={80} 
-                  height={80} 
-                  className={`object-contain transition-transform duration-300 ${tema.ativo ? 'group-hover:scale-110' : ''}`}
-                />
+              <div className="relative z-10 flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 bg-zinc-950 border border-zinc-800 rounded-xl flex items-center justify-center p-3 mb-4 sm:mb-0 sm:mr-6 image-pixelated group-hover:border-[#8A2BE2]/40 transition-colors overflow-hidden">
+                <div className="flex items-center justify-center">
+                  {tema.personagens.map((imgSrc, idx) => (
+                    <div 
+                      key={idx} 
+                      className={`relative drop-shadow-xl ${idx > 0 ? '-ml-5 sm:-ml-6' : ''}`}
+                      style={{ zIndex: tema.personagens.length - idx }}
+                    >
+                      <Image 
+                        src={imgSrc} 
+                        alt={`Personagem ${tema.titulo}`} 
+                        width={tema.personagens.length > 1 ? 55 : 80} 
+                        height={tema.personagens.length > 1 ? 55 : 80} 
+                        className={`object-contain transition-transform duration-300 ${tema.ativo ? 'group-hover:scale-110' : ''}`}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Área de Textos e Badges */}
