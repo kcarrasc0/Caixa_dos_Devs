@@ -122,7 +122,7 @@ export default function ExemploGeralCSS() {
             <a href="#duelo" className="px-8 py-3 bg-[#8A2BE2] hover:bg-[#7319c7] text-white font-bold rounded-xl shadow-lg shadow-[#8A2BE2]/30 transition-all transform active:scale-95">
               Começar Agora
             </a>
-            <Link href="/css" className="px-8 py-3 bg-white hover:bg-zinc-50 border border-zinc-200 text-zinc-700 font-bold rounded-xl transition-all shadow-sm">
+            <Link href="https://github.com/kcarrasc0/transforme-se140" className="px-8 py-3 bg-white hover:bg-zinc-50 border border-zinc-200 text-zinc-700 font-bold rounded-xl transition-all shadow-sm">
               Ver Documentação
             </Link>
           </div>
