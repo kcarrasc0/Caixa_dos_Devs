@@ -72,32 +72,7 @@ export default function CSSTrack() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {modulos.map((modulo) => (
-            <Link 
-              href={`/css/${modulo.id}`} 
-              key={modulo.id}
-              className={`group flex flex-col p-6 rounded-2xl bg-zinc-900 border transition-all duration-300 hover:-translate-y-1 ${
-                modulo.especial 
-                  ? 'border-[#8A2BE2] shadow-[0_0_15px_rgba(138,43,226,0.2)] hover:bg-zinc-800/80 hover:shadow-[0_0_25px_rgba(138,43,226,0.4)]' 
-                  : 'border-zinc-800 hover:border-[#8A2BE2]/50 hover:bg-zinc-800/50'
-              }`}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span className={`px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wider ${
-                  modulo.especial ? 'bg-[#8A2BE2] text-white' : 'text-[#8A2BE2] bg-[#8A2BE2]/10'
-                }`}>
-                  {modulo.aula}
-                </span>
-                <span className={`transition-colors ${modulo.especial ? 'text-[#8A2BE2]' : 'text-zinc-500 group-hover:text-[#8A2BE2]'}`}>➔</span>
-              </div>
-              <h2 className="text-2xl font-bold text-zinc-200 mb-2 group-hover:text-white">{modulo.titulo}</h2>
-              <p className="text-zinc-400">{modulo.descricao}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      
     </main>
   );
 }
