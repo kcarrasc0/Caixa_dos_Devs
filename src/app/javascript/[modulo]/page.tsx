@@ -17,6 +17,13 @@ import { condicionais } from '@/data/javascript/condicionais';
 import { arraysMatrizes } from '@/data/javascript/arrays-matrizes';
 import { repeticao } from '@/data/javascript/repeticao';
 import { funcoes } from '@/data/javascript/funcoes';
+import { domIntroducao } from '@/data/javascript/dom-introducao';
+import { seletoresInterface } from '@/data/javascript/seletores-interface';
+import { manipulandoHtml } from '@/data/javascript/manipulando-html';
+import { eventosOuvintes } from '@/data/javascript/eventos-ouvintes';
+import { arraysDinamicos } from '@/data/javascript/arrays-dinamicos';
+import { formularios } from '@/data/javascript/formularios';
+import { projetoPraticoJs } from '@/data/javascript/projeto-pratico-js';
 
 // Mapeando os IDs da URL para o arquivo correto
 const bancoDeAulas: Record<string, any> = {
@@ -29,6 +36,13 @@ const bancoDeAulas: Record<string, any> = {
   'repeticao': repeticao,
   'arrays-matrizes': arraysMatrizes,
   'funcoes': funcoes,
+  'dom-introducao': domIntroducao,
+  'seletores-interface': seletoresInterface,
+  'manipulando-html': manipulandoHtml,
+  'eventos-ouvintes': eventosOuvintes,
+  'arrays-dinamicos': arraysDinamicos,
+  'formularios': formularios,
+  'projeto-pratico-js': projetoPraticoJs,
 };
 
 export default function AulaPage() {
