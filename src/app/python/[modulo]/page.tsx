@@ -16,6 +16,8 @@ import { forStrings } from '@/data/python/for_strings';
 import { pooIntro } from '@/data/python/poo_intro';
 import { pooMetodos } from '@/data/python/poo_metodos';
 import { pooAvancado } from '@/data/python/poo_avancado';
+import { tkinterDesktop } from '@/data/python/tkinter-desktop';
+import { fletInterfaces } from '@/data/python/flet-interfaces';
 
 // Mapeando os IDs da URL para o arquivo correto
 const bancoDeAulas: Record<string, any> = {
@@ -26,7 +28,9 @@ const bancoDeAulas: Record<string, any> = {
   'for-strings': forStrings,
   'poo-intro': pooIntro,
   'poo-metodos': pooMetodos,
-  'poo-avancado': pooAvancado
+  'poo-avancado': pooAvancado,
+  'tkinter-desktop': tkinterDesktop,
+  'flet-interfaces': fletInterfaces
 };
 
 export default function PythonModuloPage() {

@@ -10,7 +10,23 @@ export default function PythonTrack() {
     { id: 'for-strings', titulo: 'Laço For e Manipulação', descricao: 'A função range, break/continue e tratamento de strings.', aula: 'Módulo 5' },
     { id: 'poo-intro', titulo: 'Introdução à POO', descricao: 'Abstração, Classes, Objetos e o construtor __init__.', aula: 'Módulo 6' },
     { id: 'poo-metodos', titulo: 'Métodos e Encapsulamento', descricao: 'O parâmetro self, métodos e interação entre objetos.', aula: 'Módulo 7' },
-    { id: 'poo-avancado', titulo: 'Revisão e Próximos Passos', descricao: 'Herança, Polimorfismo e a retrospectiva da jornada.', aula: 'Módulo 8' }
+    { id: 'poo-avancado', titulo: 'Revisão e Próximos Passos', descricao: 'Herança, Polimorfismo e a retrospectiva da jornada.', aula: 'Módulo 8' },
+    
+    // Novos Módulos de Interface Gráfica
+    { 
+      id: 'tkinter-desktop', 
+      titulo: 'Interfaces Clássicas (Tkinter)', 
+      descricao: 'Saindo do terminal. Criação de janelas, fluxogramas e botões.', 
+      aula: 'Módulo 9',
+      novo: true 
+    },
+    { 
+      id: 'flet-interfaces', 
+      titulo: 'Interfaces Modernas (Flet)', 
+      descricao: 'Renderização web, manipulação da pasta assets, ft.Colors e componentes.', 
+      aula: 'Módulo 10',
+      novo: true 
+    }
   ];
 
   return (
@@ -39,10 +55,15 @@ export default function PythonTrack() {
             <Link 
               href={`/python/${modulo.id}`} 
               key={modulo.id}
-              className="group flex flex-col p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-[#8A2BE2]/50 hover:bg-zinc-800/50 transition-all duration-300 hover:-translate-y-1"
+              className={`group flex flex-col p-6 rounded-2xl bg-zinc-900 border transition-all duration-300 hover:-translate-y-1 ${modulo.novo ? 'border-[#8A2BE2]/40 hover:border-[#8A2BE2] shadow-[0_0_15px_rgba(138,43,226,0.1)]' : 'border-zinc-800 hover:border-[#8A2BE2]/50 hover:bg-zinc-800/50'}`}
             >
               <div className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 text-xs font-bold text-[#8A2BE2] bg-[#8A2BE2]/10 rounded-full uppercase tracking-wider">{modulo.aula}</span>
+                <div className="flex items-center gap-3">
+                  <span className="px-3 py-1 text-xs font-bold text-[#8A2BE2] bg-[#8A2BE2]/10 rounded-full uppercase tracking-wider">
+                    {modulo.aula}
+                  </span>
+        
+                </div>
                 <span className="text-zinc-500 group-hover:text-[#8A2BE2] transition-colors">➔</span>
               </div>
               <h2 className="text-2xl font-bold text-zinc-200 mb-2 group-hover:text-white">{modulo.titulo}</h2>
