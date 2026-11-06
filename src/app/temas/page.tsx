@@ -62,6 +62,42 @@ export default function Temas() {
       ativo: true
     },
     { 
+      id: 'postgresql', 
+      titulo: 'PostgreSQL', 
+      categoria: 'Banco de Dados',
+      descricao: 'Modelagem, SGBDs, linguagem SQL e segurança avançada para dominar bancos de dados relacionais.',
+      personagens: ['/personagens/postgresql.png'],
+      status: 'Disponível',
+      ativo: true
+    },
+    { 
+      id: 'mysql', 
+      titulo: 'MySQL', 
+      categoria: 'Banco de Dados',
+      descricao: 'O banco de dados relacional mais popular da Web. Domine o padrão CRUD, cruzamentos complexos e o motor InnoDB.',
+      personagens: ['/personagens/mysql.png'],
+      status: 'Disponível',
+      ativo: true
+    },
+    { 
+      id: 'tkinter', 
+      titulo: 'Tkinter', 
+      categoria: 'Biblioteca de Interface Gráfica',
+      descricao: 'Construa aplicações desktop clássicas usando a biblioteca padrão do Python e entenda a lógica de janelas e eventos.',
+      personagens: ['/personagens/tkinter.png'], // Ajuste o caminho da imagem caso possua uma específica para Tkinter
+      status: 'Disponível',
+      ativo: true
+    },
+    { 
+      id: 'flet', 
+      titulo: 'Flet', 
+      categoria: 'Framework de Interface Moderna',
+      descricao: 'Crie aplicações web, mobile e desktop responsivas e modernas com Python, baseadas no poderoso motor do Flutter.',
+      personagens: ['/personagens/flet.png'], // Ajuste o caminho da imagem caso possua uma específica para Flet
+      status: 'Disponível',
+      ativo: true
+    },
+    { 
       id: 'typescript', 
       titulo: 'TypeScript', 
       categoria: 'Linguagem de Programação',

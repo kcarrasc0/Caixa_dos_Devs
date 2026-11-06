@@ -19,7 +19,6 @@ import { pooAvancado } from '@/data/python/poo_avancado';
 import { tkinterDesktop } from '@/data/python/tkinter-desktop';
 import { fletInterfaces } from '@/data/python/flet-interfaces';
 
-// Mapeando os IDs da URL para o arquivo correto
 const bancoDeAulas: Record<string, any> = {
   'basico': basico,
   'operadores': operadores,
@@ -56,11 +55,19 @@ export default function PythonModuloPage() {
   const totalCards = aulaAtual.cards.length;
   const cardData = aulaAtual.cards[currentIndex];
 
+  // Regra para os módulos 9 e 10
+  const isGraphicModule = moduloSlug === 'tkinter-desktop' || moduloSlug === 'flet-interfaces';
+
   const avancarCard = () => {
     if (currentIndex < totalCards - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      router.push('/python');
+      // Redireciona para Temas se for Tkinter/Flet, senão volta para a trilha Python
+      if (isGraphicModule) {
+        router.push('/temas');
+      } else {
+        router.push('/python');
+      }
     }
   };
 
@@ -111,7 +118,6 @@ export default function PythonModuloPage() {
             interactiveId={cardData.interactiveId}
             terminalOutput={cardData.terminalOutput}
             tableData={cardData.tableData}
-            /* O terminal é o padrão para o Python, não precisamos do preview HTML aqui */
             isHtmlPreview={false} 
             themeColor="#8A2BE2"
           />
@@ -139,7 +145,9 @@ export default function PythonModuloPage() {
             onClick={avancarCard}
             className="px-6 py-3 bg-[#8A2BE2] hover:bg-[#7319c7] text-white font-bold rounded-xl shadow-[0_4px_20px_rgba(138,43,226,0.3)] transition-all transform active:scale-95"
           >
-            {currentIndex === totalCards - 1 ? 'Concluir Aula 🎉' : 'Próximo →'}
+            {currentIndex === totalCards - 1 
+              ? (isGraphicModule ? 'Saiba mais →' : 'Concluir Aula 🎉') 
+              : 'Próximo →'}
           </button>
 
         </div>
