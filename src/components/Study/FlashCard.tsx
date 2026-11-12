@@ -16,9 +16,20 @@ interface FlashCardProps {
     rows: string[][];
   };
   isHtmlPreview?: boolean;
+  themeColor?: string; // Permite passar a cor de destaque do tema (opcional)
 }
 
-export default function FlashCard({ title, content, type, codeSnippet, interactiveId, terminalOutput, tableData, isHtmlPreview = false }: FlashCardProps) {
+export default function FlashCard({ 
+  title, 
+  content, 
+  type, 
+  codeSnippet, 
+  interactiveId, 
+  terminalOutput, 
+  tableData, 
+  isHtmlPreview = false,
+  themeColor = "#8A2BE2" 
+}: FlashCardProps) {
   const [moedaState, setMoedaState] = useState(true);
   const [animando, setAnimando] = useState(false);
 
@@ -30,10 +41,15 @@ export default function FlashCard({ title, content, type, codeSnippet, interacti
   };
 
   return (
-    <div className="flex w-full flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900 p-8 shadow-xl transition-all hover:border-[#8A2BE2]/30 min-h-[400px]">
+    <div 
+      className="flex w-full flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900 p-8 shadow-xl transition-all min-h-[400px]"
+      style={{ borderColor: `var(--hover-border-color, #27272a)` }}
+      onMouseEnter={(e) => (e.currentTarget.style.borderColor = `${themeColor}40`)}
+      onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#27272a')}
+    >
       
       <div>
-        <h2 className="mb-4 text-3xl font-bold text-[#8A2BE2]">
+        <h2 className="mb-4 text-3xl font-bold" style={{ color: themeColor }}>
           {title}
         </h2>
         <p className="whitespace-pre-wrap text-lg leading-relaxed text-zinc-300">
@@ -44,7 +60,7 @@ export default function FlashCard({ title, content, type, codeSnippet, interacti
           <div className="my-8 overflow-hidden rounded-xl border border-zinc-700 bg-zinc-950 shadow-lg">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm text-zinc-300">
-                <thead className="bg-zinc-900 border-b border-zinc-700 text-xs uppercase tracking-wider text-[#8A2BE2]">
+                <thead className="bg-zinc-900 border-b border-zinc-700 text-xs uppercase tracking-wider" style={{ color: themeColor }}>
                   <tr>
                     {tableData.headers.map((header, idx) => (
                       <th key={idx} className="px-6 py-4 font-bold border-r border-zinc-800 last:border-0">{header}</th>
@@ -84,8 +100,8 @@ export default function FlashCard({ title, content, type, codeSnippet, interacti
         {type === 'interactive' && interactiveId === 'bigint-container' && (
           <div className="my-8 flex items-end justify-center gap-12 border-b border-zinc-800 pb-8">
             <div className="flex flex-col items-center">
-              <div className="flex h-16 w-16 items-center justify-center border-2 border-[#8A2BE2]/50 bg-zinc-950 p-2 shadow-lg">
-                <span className="text-[10px] font-bold text-[#8A2BE2]">Number</span>
+              <div className="flex h-16 w-16 items-center justify-center border-2 bg-zinc-950 p-2 shadow-lg" style={{ borderColor: `${themeColor}80` }}>
+                <span className="text-[10px] font-bold" style={{ color: themeColor }}>Number</span>
               </div>
               <span className="mt-2 text-xs font-mono text-zinc-500">Caixa Padrão</span>
             </div>
@@ -98,66 +114,35 @@ export default function FlashCard({ title, content, type, codeSnippet, interacti
           </div>
         )}
 
-        {type === 'interactive' && interactiveId === 'symbol-cpf' && (
-          <div className="my-8 flex flex-col md:flex-row items-center justify-center gap-6">
-            <div className="flex w-64 flex-col rounded-xl border-2 border-blue-500/30 bg-[#0a192f] p-4 shadow-xl">
-              <div className="flex justify-between border-b border-blue-500/20 pb-2">
-                <span className="text-[10px] font-bold uppercase text-blue-400">Identidade Única</span>
-                <span className="text-[10px] font-mono text-zinc-500">ID: Symbol_01</span>
-              </div>
-              <div className="mt-4 flex items-center gap-4">
-                <div className="h-14 w-14 overflow-hidden rounded-lg bg-zinc-900 border border-blue-500/50 image-pixelated">
-                  <Image src="/personagens/kcarrasquinho.png" alt="Kcarrasquinho" width={56} height={56} className="object-cover" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs text-zinc-500">Nome</span>
-                  <span className="text-sm font-bold text-zinc-200">Kcarrasquinho</span>
-                </div>
-              </div>
-            </div>
-            <span className="text-2xl font-bold text-red-500">!==</span>
-            <div className="flex w-64 flex-col rounded-xl border-2 border-emerald-500/30 bg-[#0a2f1f] p-4 shadow-xl">
-              <div className="flex justify-between border-b border-emerald-500/20 pb-2">
-                <span className="text-[10px] font-bold uppercase text-emerald-400">Identidade Única</span>
-                <span className="text-[10px] font-mono text-zinc-500">ID: Symbol_31</span>
-              </div>
-              <div className="mt-4 flex items-center gap-4">
-                <div className="h-14 w-14 overflow-hidden rounded-lg bg-zinc-900 border border-emerald-500/50 image-pixelated">
-                  <Image src="/personagens/kcarrasquinho.png" alt="Kcarrasquinho" width={56} height={56} className="object-cover" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs text-zinc-500">Nome</span>
-                  <span className="text-sm font-bold text-zinc-200">Kcarrasquinho</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
         {codeSnippet && (
           <CodeBlock code={codeSnippet} />
         )}
 
-        {isHtmlPreview && codeSnippet ? (
-          <div className="mt-6 rounded-xl border border-zinc-300 overflow-hidden bg-white shadow-lg">
+        {/* 
+          AQUI ESTÁ A CORREÇÃO MÁGICA:
+          Se isHtmlPreview for True, ele tenta renderizar o terminalOutput PRIMEIRO (para o Flet).
+          Se não existir, ele renderiza o codeSnippet (para as aulas de HTML puras). 
+        */}
+        {isHtmlPreview && (terminalOutput || codeSnippet) ? (
+          <div className="mt-6 rounded-xl border border-zinc-300 overflow-hidden bg-white shadow-lg flex flex-col">
             <div className="bg-zinc-200 px-4 py-2 border-b border-zinc-300 flex items-center gap-2">
               <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-wider">
                 🌐 Navegador
               </span>
               <div className="ml-2 bg-white px-3 py-0.5 rounded shadow-sm text-[10px] text-zinc-500 font-mono flex-1 truncate">
-                localhost:3000
+                localhost:8550
               </div>
             </div>
-            <div className="p-4 w-full text-black">
+            <div className="w-full text-black flex-1 flex bg-[#18181b]">
               <iframe
-                srcDoc={codeSnippet}
-                className="w-full min-h-[120px] border-none"
+                srcDoc={terminalOutput || codeSnippet}
+                className="w-full min-h-[350px] border-none flex-1"
                 title="HTML Preview"
                 sandbox="allow-scripts"
               />
             </div>
           </div>
-        ) : terminalOutput ? (
+        ) : terminalOutput && !isHtmlPreview ? (
           <div className="mt-2 overflow-hidden rounded-lg bg-[#0d1117] border border-zinc-800 font-mono text-sm shadow-inner">
             <div className="flex items-center bg-[#161b22] px-4 py-2 border-b border-zinc-800">
               <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-bold">Terminal Output</span>
@@ -182,7 +167,6 @@ export default function FlashCard({ title, content, type, codeSnippet, interacti
           </div>
         ) : null}
       </div>
-
     </div>
   );
 }
