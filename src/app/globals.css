@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #09090b;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -12,15 +12,51 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ========================================================
+   CLASSES GLOBAIS DE ACESSIBILIDADE (CAIXA DOS DEVS)
+   ======================================================== */
+
+/* 1. MODO CLARO / ALTO CONTRASTE */
+body.light-mode-a11y {
+  /* Apenas muda o fundo, NUNCA aplique 'filter' aqui! */
+  background-color: #ffffff !important;
+}
+
+/* O filtro atua estritamente na div do conteúdo, salvando os botões */
+body.light-mode-a11y #main-wrapper {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* Proteção de imagens e vídeos */
+body.light-mode-a11y #main-wrapper img,
+body.light-mode-a11y #main-wrapper video,
+body.light-mode-a11y #main-wrapper iframe {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* 2. MODO MONOCROMÁTICO */
+body.monochrome-a11y #main-wrapper {
+  filter: grayscale(100%) !important;
+}
+
+/* 3. COMBINAÇÃO (CLARO + MONOCROMÁTICO) */
+body.light-mode-a11y.monochrome-a11y #main-wrapper {
+  filter: invert(1) hue-rotate(180deg) grayscale(100%) !important;
+}
+
+/* 4. AUMENTAR TEXTO */
+body.large-text-a11y {
+  zoom: 1.15;
+}
+
+/* 5. CURSOR GRANDE */
+body.large-cursor-a11y,
+body.large-cursor-a11y * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='%238A2BE2' stroke='white' stroke-width='2'%3E%3Cpath d='M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z'/%3E%3C/svg%3E"), auto !important;
 }

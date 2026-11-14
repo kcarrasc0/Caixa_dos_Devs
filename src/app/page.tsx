@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
+import { SiJavascript } from 'react-icons/si'; // Importação do ícone real!
 
 // Componente Interno para gerar as formas geométricas que vão flutuar pela página
 const BackgroundGeometry = () => (
@@ -36,11 +37,7 @@ export default function Home() {
       
       <BackgroundGeometry />
       
-      {/* 
-        =========================================
-        SEÇÃO 1: HERO
-        =========================================
-      */}
+      {/* ================= SEÇÃO 1: HERO ================= */}
       <section className="relative min-h-[90vh] flex items-center px-6 border-b border-zinc-900/50 z-10">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-10">
           
@@ -92,31 +89,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 
-        =========================================
-        SEÇÃO 1.5: APRESENTAÇÃO (VÍDEO YOUTUBE)
-        =========================================
-      */}
+      {/* ================= SEÇÃO 1.5: APRESENTAÇÃO ================= */}
       <section className="relative py-32 flex flex-col items-center justify-center px-6 border-b border-zinc-900/50 z-10 overflow-hidden">
-        
-        {/* Efeitos de Fundo Locais do Vídeo - Opacidade e blur mais sutis */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#8A2BE2]/5 blur-[100px] rounded-full pointer-events-none z-0"></div>
         <div className="absolute top-20 right-[15%] w-16 h-16 border-4 border-[#00BCD4] opacity-20 animate-[spin_10s_linear_infinite]"></div>
         <div className="absolute bottom-20 left-[15%] w-12 h-12 bg-[#ff5ebd] rounded-full opacity-20 blur-md animate-[pulse_4s_infinite]"></div>
         
         <div className="z-10 flex flex-col items-center w-full max-w-5xl text-center">
-
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-12">
             Mas afinal, o que é a <span className="text-[#8A2BE2]">Caixa dos Devs?</span>
           </h2>
-
-          {/* Container do Vídeo com Borda Brilhante Reduzida */}
           <div className="relative w-full max-w-4xl aspect-video rounded-3xl p-[2px] bg-gradient-to-br from-[#8A2BE2]/30 via-zinc-800 to-[#00BCD4]/30 shadow-[0_0_20px_rgba(138,43,226,0.1)] group hover:shadow-[0_0_30px_rgba(138,43,226,0.2)] transition-shadow duration-500">
-            
-            {/* Efeito Glow Interno - Mais suave */}
             <div className="absolute inset-0 bg-[#8A2BE2]/10 blur-xl rounded-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 z-0"></div>
-            
-            {/* O iFrame do YouTube */}
             <div className="relative z-10 w-full h-full rounded-[22px] overflow-hidden bg-zinc-950 border border-zinc-900 shadow-inner">
               <iframe 
                 width="100%" 
@@ -130,21 +114,14 @@ export default function Home() {
               ></iframe>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* 
-        =========================================
-        SEÇÃO 2: O CRIADOR (COM GLASSMORPHISM)
-        =========================================
-      */}
+      {/* ================= SEÇÃO 2: O CRIADOR ================= */}
       <section className="relative py-28 border-b border-zinc-900/50 z-10 bg-zinc-950/40 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
           <div className="relative flex justify-center items-center order-2 lg:order-1 mt-12 lg:mt-0">
             <div className="absolute top-4 -left-4 md:-left-10 w-32 h-32 md:w-40 md:h-40 bg-[#ffe600] rounded-full z-0 shadow-lg"></div>
-            
             <div className="relative w-[300px] h-[350px] md:w-[380px] md:h-[450px] bg-[#00BCD4] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden z-10 shadow-2xl transition-transform duration-700 hover:rotate-2">
               <Image 
                 src="/colabkcarrasco.png" 
@@ -155,7 +132,6 @@ export default function Home() {
                 priority
               />
             </div>
-            
             <div className="absolute bottom-4 -right-4 md:-right-8 w-32 h-32 md:w-40 md:h-40 border-4 border-[#ff5ebd] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] z-20 opacity-80 pointer-events-none animate-[spin_20s_linear_infinite]"></div>
           </div>
 
@@ -163,7 +139,6 @@ export default function Home() {
             <h2 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
               A mente<br/>por trás da<br/><span className="text-[#8A2BE2]">Caixa.</span>
             </h2>
-            
             <div className="mt-4 flex flex-col gap-4 text-zinc-300 text-lg leading-relaxed max-w-lg">
               <p>
                 <strong>Olá, eu sou o Erick Carrasco.</strong> Sou instrutor técnico de desenvolvimento de software no Senac PE e fundador da NOOK Corporation.
@@ -172,13 +147,11 @@ export default function Home() {
                 A Caixa dos Devs nasceu de uma necessidade real das minhas salas de aula: transformar documentações técnicas densas e conceitos abstratos num formato altamente visual, mastigado e direto ao ponto.
               </p>
             </div>
-
             <div className="flex flex-wrap items-center gap-3 mt-4">
               <span className="px-4 py-1.5 bg-[#8A2BE2]/10 border border-[#8A2BE2]/30 text-[#8A2BE2] rounded-full text-sm font-bold uppercase tracking-wider">Educação</span>
               <span className="px-4 py-1.5 bg-[#00BCD4]/10 border border-[#00BCD4]/30 text-[#00BCD4] rounded-full text-sm font-bold uppercase tracking-wider">Front-end</span>
               <span className="px-4 py-1.5 bg-[#F29111]/10 border border-[#F29111]/30 text-[#F29111] rounded-full text-sm font-bold uppercase tracking-wider">Python</span>
             </div>
-
             <div className="flex flex-wrap items-center gap-4 mt-8">
               <a 
                 href="https://kcarrasco.com" 
@@ -196,15 +169,10 @@ export default function Home() {
               </Link>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* 
-        =========================================
-        SEÇÃO 3: O QUE VOCÊ ENCONTRA AQUI?
-        =========================================
-      */}
+      {/* ================= SEÇÃO 3: O QUE VOCÊ ENCONTRA AQUI? ================= */}
       <section className="w-full bg-zinc-950 pt-24 border-b border-zinc-900/50 z-10 relative">
         <div className="text-center mb-12 px-6">
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4">O que você encontra aqui?</h2>
@@ -266,12 +234,117 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 
-        =========================================
-        SEÇÃO 4: CARROSSEL DE CURSOS
-        =========================================
-      */}
-      <section className="py-24 relative overflow-hidden z-10 bg-zinc-950/80 backdrop-blur-sm border-t border-zinc-900/50">
+      {/* ================= SEÇÃO 3.5: SIMULADOR INTEGRADO (CORRIGIDA) ================= */}
+      <section className="relative py-28 bg-[#09090b] border-b border-zinc-900/50 z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Esquerda: Textos e CTA com Roxo (#8A2BE2) */}
+          <div className="flex flex-col gap-6 z-10 relative">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8A2BE2]/10 border border-[#8A2BE2]/30 w-fit mb-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#8A2BE2]">Ambiente de Prática</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight">
+              Codifique na Prática. <br/>
+              Sem <span className="text-[#8A2BE2]">Instalações.</span>
+            </h2>
+            
+            <p className="text-zinc-400 text-lg leading-relaxed max-w-lg mt-2">
+              Para aprender a programar, você precisa programar. Teste a lógica das aulas, experimente novas linguagens e veja o resultado na hora no nosso Simulador Web inspirado no VS Code.
+            </p>
+            
+            <Link 
+              href="/simulador?lang=javascript"
+              target="_blank"
+              className="mt-6 inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#8A2BE2] hover:bg-[#7319c7] text-white font-bold text-lg rounded-xl transition-all hover:-translate-y-1 shadow-[0_10px_30px_rgba(138,43,226,0.3)] hover:shadow-[0_10px_40px_rgba(138,43,226,0.4)] w-fit"
+            >
+              Abrir Simulador <span>↗</span>
+            </Link>
+          </div>
+
+          {/* Direita: O Mini VS Code (Simulador Visual JS) */}
+          <div className="relative z-10 lg:ml-8 perspective-1000">
+            {/* Efeito Glow Roxo por trás do VS Code */}
+            <div className="absolute inset-0 bg-[#8A2BE2]/20 blur-[120px] rounded-full pointer-events-none"></div>
+            
+            <div className="relative w-full rounded-xl bg-[#1e1e1e] border border-[#2b2b36] shadow-2xl overflow-hidden flex flex-col transform transition-transform duration-700 hover:scale-[1.02] hover:shadow-[0_30px_60px_rgba(138,43,226,0.15)] group">
+              
+              {/* Header do Mini VS Code */}
+              <div className="h-9 bg-[#111116] border-b border-[#2b2b36] flex items-center px-4 justify-between select-none">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div className="text-[11px] font-medium text-zinc-500 flex-1 text-center pr-8">
+                  Caixa_dos_Devs - script.js
+                </div>
+              </div>
+              
+              {/* Tabs */}
+              <div className="flex bg-[#18181f] border-b border-[#2b2b36] select-none">
+                <div className="px-4 py-2 bg-[#1e1e1e] border-t-2 border-[#eab308] text-white text-[12px] flex items-center gap-2">
+                  {/* Ícone da biblioteca react-icons! */}
+                  <SiJavascript size={14} color="#eab308" />
+                  <span className="font-medium">script.js</span>
+                </div>
+              </div>
+
+              {/* Área de Código (Corada para JS) */}
+              <div className="p-4 font-mono text-[13px] md:text-sm bg-[#1e1e1e]">
+                <div className="flex">
+                  <span className="text-zinc-600 select-none w-8 text-right pr-4">1</span>
+                  <span className="text-[#569cd6]">const</span> <span className="text-[#4FC1FF]">saudacao</span> <span className="text-[#d4d4d4]">=</span> <span className="text-[#ce9178]">"Hello, World!"</span><span className="text-[#d4d4d4]">;</span>
+                </div>
+                <div className="flex">
+                  <span className="text-zinc-600 select-none w-8 text-right pr-4">2</span>
+                </div>
+                <div className="flex mt-2">
+                  <span className="text-zinc-600 select-none w-8 text-right pr-4">3</span>
+                  <span className="text-[#4FC1FF]">console</span><span className="text-[#d4d4d4]">.</span><span className="text-[#dcdcaa]">log</span><span className="text-[#d4d4d4]">(</span><span className="text-[#4FC1FF]">saudacao</span><span className="text-[#d4d4d4]">);</span>
+                </div>
+                <div className="flex mt-2">
+                  <span className="text-zinc-600 select-none w-8 text-right pr-4">4</span>
+                </div>
+                <div className="flex">
+                  <span className="text-zinc-600 select-none w-8 text-right pr-4">5</span>
+                  <span className="text-[#c586c0]">function</span> <span className="text-[#dcdcaa]">init</span><span className="text-[#d4d4d4]">() {'{'}</span>
+                </div>
+                <div className="flex">
+                  <span className="text-zinc-600 select-none w-8 text-right pr-4">6</span>
+                  <span className="text-[#6A9955] ml-4">// Inicializando simulador</span>
+                </div>
+                <div className="flex">
+                  <span className="text-zinc-600 select-none w-8 text-right pr-4">7</span>
+                  <span className="text-[#d4d4d4]">{'}'}</span>
+                </div>
+              </div>
+
+              {/* Terminal Integrado */}
+              <div className="h-28 bg-[#18181f] border-t border-[#2b2b36] flex flex-col">
+                <div className="px-4 py-1.5 border-b border-[#2b2b36] text-[10px] font-bold text-zinc-500 tracking-wider">
+                  <span className="text-white border-b border-white pb-1.5">TERMINAL</span>
+                </div>
+                <div className="p-3 font-mono text-[12px]">
+                  <div className="text-zinc-400">~/Caixa_dos_Devs $ node script.js</div>
+                  <div className="text-[#d4d4d4] mt-1 flex items-center gap-2">
+                    <span>{'>'}</span> Hello, World!
+                    {/* Cursor a piscar falso */}
+                    <span className="inline-block w-1.5 h-3.5 bg-zinc-400 animate-pulse"></span>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= SEÇÃO 4: CARROSSEL DE CURSOS ================= */}
+      <section className="py-24 relative overflow-hidden z-10 bg-zinc-950/80 backdrop-blur-sm">
         
         <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none"></div>
         <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none"></div>

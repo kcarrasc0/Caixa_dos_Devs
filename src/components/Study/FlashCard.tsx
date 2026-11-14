@@ -16,7 +16,7 @@ interface FlashCardProps {
     rows: string[][];
   };
   isHtmlPreview?: boolean;
-  themeColor?: string; // Permite passar a cor de destaque do tema (opcional)
+  themeColor?: string;
 }
 
 export default function FlashCard({ 
@@ -40,6 +40,12 @@ export default function FlashCard({
     setTimeout(() => setAnimando(false), 500);
   };
 
+  // A LÓGICA MÁGICA DO NAVEGADOR:
+  // Se o terminalOutput tiver tags HTML reais (<div), é a nossa simulação do Flet/Tkinter.
+  // Se for apenas o texto de placeholder antigo "[ O Mini Navegador... ]", ignoramos e usamos o codeSnippet original das aulas de HTML!
+  const isFakeBrowserUI = terminalOutput && terminalOutput.includes('<div');
+  const iframeContent = isFakeBrowserUI ? terminalOutput : codeSnippet;
+
   return (
     <div 
       className="flex w-full flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900 p-8 shadow-xl transition-all min-h-[400px]"
@@ -47,7 +53,6 @@ export default function FlashCard({
       onMouseEnter={(e) => (e.currentTarget.style.borderColor = `${themeColor}40`)}
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#27272a')}
     >
-      
       <div>
         <h2 className="mb-4 text-3xl font-bold" style={{ color: themeColor }}>
           {title}
@@ -118,12 +123,8 @@ export default function FlashCard({
           <CodeBlock code={codeSnippet} />
         )}
 
-        {/* 
-          AQUI ESTÁ A CORREÇÃO MÁGICA:
-          Se isHtmlPreview for True, ele tenta renderizar o terminalOutput PRIMEIRO (para o Flet).
-          Se não existir, ele renderiza o codeSnippet (para as aulas de HTML puras). 
-        */}
-        {isHtmlPreview && (terminalOutput || codeSnippet) ? (
+        {/* Renderiza o Navegador Falso usando a lógica que criámos acima */}
+        {isHtmlPreview && iframeContent ? (
           <div className="mt-6 rounded-xl border border-zinc-300 overflow-hidden bg-white shadow-lg flex flex-col">
             <div className="bg-zinc-200 px-4 py-2 border-b border-zinc-300 flex items-center gap-2">
               <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-wider">
@@ -135,7 +136,7 @@ export default function FlashCard({
             </div>
             <div className="w-full text-black flex-1 flex bg-[#18181b]">
               <iframe
-                srcDoc={terminalOutput || codeSnippet}
+                srcDoc={iframeContent}
                 className="w-full min-h-[350px] border-none flex-1"
                 title="HTML Preview"
                 sandbox="allow-scripts"
@@ -152,7 +153,7 @@ export default function FlashCard({
                 <span className="text-green-400 font-semibold">kcarrasquinho@notebook</span>
                 <span className="text-pink-500 font-semibold">:</span>
                 <span className="text-blue-400 font-semibold">~/aula</span>
-                <span className="text-zinc-300">$ node script.js</span>
+                <span className="text-zinc-300">$ executar script</span>
               </div>
               <div className="text-zinc-300 whitespace-pre-wrap pl-2 border-l-2 border-zinc-700">
                 {terminalOutput}
